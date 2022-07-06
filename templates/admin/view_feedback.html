@@ -1,0 +1,84 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg1.jpg' %});" data-stellar-background-ratio="0.5">
+
+
+        <br><br><br><br>
+          <br>
+    <div class="site-section" id="blog-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+
+
+          </div>
+        </div>
+
+
+
+
+<div class="site-section">
+      <div class="container">
+        <h1 style="color: white">Feedback</h1>
+        <div class="row mb-5">
+          <form class="col-md-12" method="post" >
+            <div class="site-blocks-table">
+              <table class="table table-bordered" style="background: white">
+                <thead>
+                  <tr>
+                  <th class="product-category">feedbacks</th>
+                  <th class="product-category">User Details</th>
+
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                <p align="right">
+
+
+                </p>
+                {% for f in feed %}
+ <tr>
+                    <td class="product-name">
+                      <h2 class="h5 text-black">{{ f.feedback}}</h2>
+                    </td>
+                   <td class="product-name">
+
+                      <h2 class="h5 text-black">{{ f.user.login.first_name }}</h2>
+
+                      <h2 class="h5 text-black">{{ f.user.login.email }}</h2>
+                      <h2 class="h5 text-black">{{ f.user.location }}</h2>
+                    </td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}

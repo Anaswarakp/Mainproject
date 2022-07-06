@@ -1,0 +1,55 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/police1.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <br><br><br><br><br><br><br>
+
+
+
+          <section class="ftco-consultation">
+        <div class="container-fluid">
+            <div class="row d-
+
+            md-flex">
+
+                <div class="half p-3 p-md-5 ftco-animate">
+
+                     <h1  style="color:white" >Profile</h1>
+<!--                     <h6  style="color:white" >Profile</h6>-->
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                <div class="form-group">
+                  <input type="text" class="form-control" autocomplete="off" name="name" value="{{ single_view.user.first_name }}" required="" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" autocomplete="off" name="desig" value="{{ single_view.designation }}" required="" placeholder="Password">
+                </div>
+                           <div class="form-group">
+                  <input type="text" class="form-control" autocomplete="off" name="range" value="{{ single_view.range }}" required="" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" autocomplete="off" name="user" value="{{ single_view.user.id }}" required="" placeholder="Password">
+                </div>
+                         <div class="form-group">
+                  <input type="hidden" class="form-control" autocomplete="off" name="officer" value="{{ single_view.id }}" required="" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" name="login" value="ADD AS BLOCKCHAIN ADMIN" class="btn btn-primary">
+                </div>
+              </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        </div>
+      </div>
+{% endblock %}

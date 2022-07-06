@@ -1,0 +1,92 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg1.jpg' %});" data-stellar-background-ratio="0.5">
+
+        <br><br><br><br>
+          <br>
+    <div class="site-section" id="blog-section">
+      <div class="container">
+        <h1 style="color: white">Officer List</h1>
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+
+
+          </div>
+        </div>
+
+
+
+            <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <form class="col-md-18" method="post" >
+            <div class="site-blocks-table">
+              <div style="color: white">
+              <table class="table table-bordered" align="center">
+                <thead >
+                  <tr>
+
+                    <th class="product-dis">NAME</th>
+                     <th class="product-dis">DESIGNATION</th>
+                      <th class="product-dis">RANGE</th>
+                     <th class="product-dis">EMAIL</th>
+                     <th class="product-dis">ACTION</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr>
+{% for st in officer %}
+                    <td class="product-dis">
+                      <h2 style="color: white" class="h5 text-black">{{ st.user.first_name }}</h2>
+                    </td>
+
+                     <td class="product-dis">
+                      <h2 style="color: white" class="h5 text-black">{{ st.designation }}</h2>
+                    </td>
+
+
+                    <td class="product-dis">
+                      <h2 style="color: white" class="h5 text-black">{{ st.range }}</h2>
+                    </td>
+
+                    <td class="product-dis">
+                      <h2 style="color: white" class="h5 text-black">{{ st.user.email}}</h2>
+                    </td>
+
+
+                    <td>
+                    <p>
+                    <a href="ApproveView?id={{ st.user.id }}" class="btn btn-primary">APPROVE</a> </p>
+            <a href="RejectView?id={{ st.user.id }}" class="btn btn-primary">DECLINE</a></td>
+    </tr>
+
+{% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </form>
+
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+</div>
+
+
+            </div>
+
+
+
+
+
+{% endblock %}
