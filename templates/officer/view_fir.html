@@ -1,0 +1,121 @@
+{% extends 'officer/officer_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/police1.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div style="width: 1500px">
+<br><br><br><br><br><br><br><br>&nbsp
+    <section class="ftco-counter" id="section-counter">
+        <div class="container-fluid">
+       <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+<h2 ALIGN="center" style="color: white">FIR</h2>
+
+<table style="background-color: white" id="customers">
+  <tr>
+      <th></th>
+    <th>INFOMER NAME</th>
+      <th>REPORTING TIME</th>
+      <th>DESCRIPTION</th>
+      <th>STEP TAKEN</th>
+      <th>CRIMINAL</th>
+      <th>DESPATCH DATE</th>
+      <th>BLOCk CHAIN COUNT</th>
+      <th>VIEW LEDGER</th>
+
+      <th>APPROVE</th>
+      <th>REJECT</th>
+
+
+
+
+
+
+
+
+      <th></th>
+
+  </tr>
+  {% for dri in fir  %}
+  <tr>
+      <td></td>
+    <td style="color: black">{{ dri.informer}}</td>
+          <td style="color: black">{{ dri.reporttime}}</td>
+    <td style="color: black">{{ dri.casedescription}}</td>
+    <td style="color: black">{{ dri.explanation}}</td>
+          <td style="color: black">{{ dri.criminal}}</td>
+                <td style="color: black">{{ dri.datetime}}</td>
+       <td style="color: black">{{ dri.blockchain_count}}</td>
+
+
+
+
+
+      <td> <a style="color: white"  class ="btn btn-danger" id="cl" href="view_ledger_login?c_id={{ dri.id }}">view ledger</a></td>
+
+         <form action="" method="post">
+        {% csrf_token %}
+
+    <td><textarea name="remark" placeholder="remark" > </textarea>
+                <input type="hidden" value="approve" name="type">
+                        <input type="hidden" value="{{dri.id}}" name="id">
+        <br>
+
+
+
+        <button type="submit">Submit</button></td>
+         </form>
+
+        <form action="" method="post">
+        {% csrf_token %}
+
+    <td><textarea name="remark" placeholder="remark" > </textarea>
+        <input type="hidden" value="reject" name="type">
+                <input type="hidden" value="{{dri.id}}" name="id">
+        <br>
+
+        <button type="submit">Submit</button></td>
+        </form>
+
+
+      <td></td>
+
+  </tr>
+{% endfor %}
+</table>
+
+    </section>
+        </div>
+</div>
+
+{% endblock %}
