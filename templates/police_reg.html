@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/police1.jpg' %})" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <br><br><br>
+
+
+<section class="ftco-consultation" style="padding-left: 500px">
+      <div class="container-fluid">
+        <div class="row d-md-flex">
+          <div style="width: 500%;" class="half p-5 p-md-10 ftco-animate">
+            <h3 style="color: white" class="mb-4">NEW  REGISTRATION</h3>
+            <form action="" method="POST">
+            {% csrf_token %}
+              <div class="form-group">
+               <div class="col-lg-12">
+                                <select class="form-control" name="name" required=""  class="form-control">
+                      <option value="">Select Station</option>
+{% for p in pl %}
+                      <option value="{{ p.id }}">{{ p.station_name }}</option>';
+
+{% endfor %}
+
+
+                     </select>
+                            </div>
+              </div>
+               <div class="form-group">
+{#                <input type="text" class="form-control" required="" autocomplete="off" name="phone" pattern="[6-9]{0}[0-9]{9}" placeholder="Station Phone Number">#}
+                    <input type="text" class="form-control" required="" autocomplete="off" name="phone"  placeholder="Station Phone Number">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" required="" autocomplete="off" name="email" placeholder="Station Email">
+              </div>
+
+
+              <div class="form-group">
+                <input type="text" class="form-control" required="" autocomplete="off" name="location" placeholder="Location">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" required="" autocomplete="off" name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+              </div>
+              <div class="form-group">
+                <input type="submit" value="REGISTER" required="" name="register" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+        </div>
+      </div>
+{% endblock %}

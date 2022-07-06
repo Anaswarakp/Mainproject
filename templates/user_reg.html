@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/police1.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <br>
+
+
+
+ <section class="ftco-consultation" style="padding-left: 500px">
+      <div class="container-fluid">
+        <div class="row d-md-flex">
+
+          <div style="width: 500%" class="half p-5 p-md-10 ftco-animate">
+            <h3 style="color: white" class="mb-4">NEW USER REGISTRATION</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+              <div class="form-group">
+                <input type="text" class="form-control" required="" autocomplete="off" name="name" placeholder="Your Name">
+              </div>
+              <div class="form-group row">
+                <label>Male</label>&nbsp;&nbsp;<input type="radio" value="male" required name="gender">&nbsp; &nbsp; &nbsp;
+                <label>Female</label><input type="radio" value="female" required name="gender">&nbsp; &nbsp; &nbsp;
+                <label>Other</label><input type="radio" value="others" required name="gender">
+                    <!-- <select class="form-control" required="" name="gender" class="form-control">
+                      <option value="">Select Gender</option>
+                      <option value="male">MALE</option>
+                      <option value="female">FEMALE</option>
+                      <option value="female">OTHER</option>
+
+
+
+                    </select>  -->
+                    </div>
+              <div class="form-group">
+                <label>DOB</label>
+                <input type="date" class="form-control" required="" autocomplete="off" name="dob" placeholder="date of birth">
+              </div>
+               <div class="form-group">
+                <input type="text" class="form-control" pattern="[6-9]{1}[0-9]{9}" required="" maxlength="10" autocomplete="off" name="phone" placeholder="Your Phone Number">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" required="" autocomplete="off" name="email" placeholder="Your Email">
+              </div>
+
+              <div class="form-group">
+                <input cols="20" rows="3" required="" autocomplete="off" name="address" class="form-control" placeholder="address">
+              </div>
+<!--              <div class="form-group">-->
+<!--                <input type="text" class="form-control" required="" autocomplete="off" name="location" placeholder="Location">-->
+<!--              </div>-->
+              <div class="form-group">
+                <input type="text" class="form-control" required="" autocomplete="off" name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+              </div>
+              <div class="form-group">
+                <input type="submit" value="REGISTER" name="register" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        </div>
+      </div>
+{% endblock %}

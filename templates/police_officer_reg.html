@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+
+<div class="hero-wrap js-fullheight" style="    background-image: url({% static 'images/police1.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <br><br><br>
+
+
+
+   <section class="ftco-consultation" style="padding-left: 500px">
+      <div class="container-fluid">
+        <div class="row d-md-flex">
+
+          <div style="width: 500%;" class="half p-5 p-md-10 ftco-animate">
+            <h3 style="color: white" class="mb-4">Police Officer Registration</h3>
+            <form action="" method="POST">
+            {% csrf_token %}
+<!--              <div class="form-group">-->
+<!--&lt;!&ndash;               <div class="col-lg-12">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <select class="form-control" name="name" required=""  class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <option value="">Select Station</option>&ndash;&gt;-->
+<!--&lt;!&ndash;{% for p in pl %}&ndash;&gt;-->
+<!--&lt;!&ndash;                      <option value="{{ p.id }}">{{ p.station_name }}</option>';&ndash;&gt;-->
+
+<!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                     </select>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--              </div>-->
+               <div class="form-group">
+                <input type="text" class="form-control" required="" autocomplete="off" name="name" placeholder="Name">
+              </div>
+                  <div class="form-group">
+ <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="designation" id="prisonerNumber">
+    <option value="">Select Designation</option>
+    <option value="DYSP">DYSP</option>
+
+    <option value="DIG">SP</option>
+          <option value="DIG">DIG</option>
+          <option value="IG">IG</option>
+                        <option value="ADGP">ADGP</option>
+                             <option value="DGP">DGP</option>
+
+
+
+
+
+
+  </select>              </div>
+              <div class="form-group">
+ <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="range" id="prisonerNumber">
+    <option value="">Select Range</option>
+    <option value="Thiruvananthapuram Range">Thiruvananthapuram Range</option>
+
+    <option value="Ernakulam Range">Ernakulam Range</option>
+          <option value="Thrissur Range">Thrissur Range</option>
+                        <option value="Kannur Range">Kannur Range</option>
+
+
+
+
+
+
+  </select>                  </div>
+
+
+              <div class="form-group">
+                <input type="email" class="form-control" required="" autocomplete="off" name="email" placeholder="Email">
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control" required="" autocomplete="off" name="password" placeholder="password" >
+              </div>
+              <div class="form-group">
+                <input type="submit" value="REGISTER" required="" name="register" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        </div>
+      </div>
+{% endblock %}
