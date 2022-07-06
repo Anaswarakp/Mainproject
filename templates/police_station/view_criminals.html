@@ -1,0 +1,84 @@
+
+{% extends 'police_staff/police_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/police1.jpg' %});" data-stellar-background-ratio="0.5">
+
+<br><br><br><br><br>&nbsp
+     <div class="site-section">
+
+      <div class="container">
+        <h1 style="color: white">Criminals Lists</h1>
+        <div class="row mb-5">
+          <form class="col-md-12" method="post" >
+            <div class="site-blocks-table">
+              <table style="color:white;background-color: #0b0b0b" class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-namename">Image</th>
+                  <th class="product-namename">Criminal Name</th>
+                  <th class="product-namename">Criminal Address</th>
+                  <th class="product-namename">Criminal Contact</th>
+                  <th class="product-name">Dob</th>
+                      <th class="product-edit">Added Station</th>
+                    <th class="product-edit">Edit</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                <p align="right">
+
+
+                </p>
+
+                {% for c in cri %}
+                <tr>
+                 <td class="product-name">
+                       <img style="width:220px;height:220px;" src="{{ c.image.url }}" alt="Image">
+                    </td>
+
+                    <td class="product-name">
+                      <h2 style="color: white" class="h5 text-black">{{ c.name }}</h2>
+                    </td>
+                    <td class="product-name">
+                      <h2 style="color: white" class="h5 text-black">{{ c.address }}</h2>
+                    </td>
+                    <td class="product-name">
+                      <h2 style="color: white" class="h5 text-black">{{ c.contact }}</h2>
+                    </td>
+                    <td class="product-name">
+                      <h2 style="color: white" class="h5 text-black">{{ c.age }}</h2>
+                    </td>
+                    <td class="product-name">
+                      <h2 style="color: white" class="h5 text-black">{{ c.police.station.station_name }}</h2>
+                    </td>
+                    <td class="product-name">
+                     <a style="color: white"  class ="btn btn-danger" id="cl" href="DeleteCriminals?c_id={{ c.id }}">DELETE
+   </a>
+                    </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+
+{% endblock %}

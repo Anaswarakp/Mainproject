@@ -1,0 +1,113 @@
+{% extends 'police_staff/police_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: orange;
+  outline: none;
+}
+ div {
+            padding: 10px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<form method="post" action="">
+    {% csrf_token %}
+  <div class="container">
+  <center>  <h1> First Information Report</h1> </center>
+  <hr>
+
+
+<label> Name and residence of informer and complainant </label>
+<textarea cols="80" rows="5" placeholder="{{ m.informer }}" value="" name="informer" required>
+</textarea>
+<label> Brief description of offence (with section) and of property carried off, if any. </label>
+<textarea cols="80" rows="5" placeholder="{{ m.casedescription }}" name="casedescription" required>
+</textarea>
+<div>
+<label>
+            <input type="hidden" name="complaint_id" value="{{com.id}}" class="form-control" placeholder="">
+<div>
+<label>
+Place of occurence and distance and direction from the Police Station.
+</label>
+
+<textarea cols="80" rows="5" placeholder="{{ m.place }}" name="place" required>
+</textarea>
+</div>
+<div>
+<label>
+Name & Address of the Criminal.
+</label><br>
+<textarea cols="80" rows="5" placeholder="{{ m.criminal }}" name="criminal" required>
+</textarea>
+
+</div>
+<label>
+Steps taken regarding investigation explanation of delay in regarding information.
+</label>
+<textarea cols="80" rows="5" placeholder="{{ m.explanation }}" name="explanation" required>
+</textarea>
+
+<!-- <label> Date and Time of despatch from Police Station. </label><br>-->
+<!--<input type="datetime-local" name="despatchtime" placeholder= "Date and Time of despatch from Police Station." size="15" required /><br>-->
+{#    <button type="submit" class="registerbtn">submit</button>#}
+</form>
+</body>
+</html>
+
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+
+{% extends 'police_staff/police_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+    <section class="ftco-consultation">
+      <div class="container-fluid">
+        <div class="row d-md-flex">
+
+          <div class="half p-5 p-md-10 ftco-animate">
+            <h3 class="mb-4">UPDATE PROFILE</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+               <div class="form-group">
+                <input type="text" class="form-control" name="p_phone" maxlength="10"
+                  pattern="[0-9]{10}" title="Enter ten digit mobile number" value="{{ pl.contact }}" placeholder="Your Phone Number">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="p_email" value="{{ pl.login.email }}"  placeholder="Your Email" required="">
+              </div>
+
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="p_location" required="" value="{{ pl.p_location }}" placeholder="Location">
+              </div>
+
+              <div class="form-group">
+                <input type="submit" value="UPDATE" name="update" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

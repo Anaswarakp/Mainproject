@@ -1,0 +1,219 @@
+
+{% extends 'police_staff/police_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<div  style="background-image: url({% static 'images/police1.jpg' %});height: 1000px;" data-stellar-background-ratio="0.5">
+
+<br><br><br><br><br>&nbsp
+     <div class="site-section">
+
+
+        <h1 style="color: white">ADD EVIDENCE</h1>
+           <form class="col-md-12" method="post" >
+                   {% csrf_token %}
+      <label style="color: white;font-size: 150%">Enter date</label>
+      <input type="Date" name="date111" placeholder="" required>
+       <label style="color: white;font-size: 150%">Enter File name</label>
+      <input type="text" name="filename" placeholder="" required>
+      <br>
+      <label style="color: white;font-size: 150%">Enter File Number</label>
+      <input type="number" name="filenumber" placeholder="" required>
+       <label style="color: white;font-size: 150%">Location</label>
+      <input type="text" name="location" placeholder="" required>
+               <input type="hidden" name="id" value="{{ id }}" placeholder="" required>
+        <div class="row mb-5">
+
+
+
+            <div class="site-blocks-table" style="width: 200%;" >
+              <table style="color:white;background-color: #0b0b0b;" class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-dis"> NUMBER</th>
+                     <th class="product-dis">LOCATION</th>
+                      <th class="product-dis">TIME</th>
+                     <th class="product-dis">DATE</th>
+                      <th class="product-edit">Evidence </th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                <p align="right">
+
+
+                </p>
+
+
+                <tr>
+                 <td class="product-dis">
+                   <h3 style="color:white">1</h3>
+                    </td>
+                                 <td class="product-dis">
+                   <input style="width: 300px;height: 30px;" name="location1" type="text">
+                    </td>
+
+                     <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="time1" type="time">
+                    </td>
+
+
+                    <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="date1" type="date">
+                    </td>
+
+                    <td class="product-dis">
+                     <textarea style="width: 300px;height: 30px" name="evidence1" type="text"></textarea>
+                    </td>
+
+
+
+                    </tr>
+                     <tr>
+                 <td class="product-dis">
+                   <h3 style="color:white">2</h3>
+                    </td>
+                                 <td class="product-dis">
+                   <input style="width: 300px;height: 30px" name="location2" type="text">
+                    </td>
+
+                     <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="time2" type="time">
+                    </td>
+
+
+                    <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="date2" type="date">
+                    </td>
+
+                    <td class="product-dis">
+                     <textarea style="width: 300px;height: 30px" name="evidence2" type="text"></textarea>
+                    </td>
+
+
+
+                    </tr>
+                     <tr>
+                 <td class="product-dis">
+                   <h3 style="color:white">3</h3>
+                    </td>
+                                 <td class="product-dis">
+                   <input style="width: 300px;height: 30px" name="location3" type="text">
+                    </td>
+
+                     <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="time3" type="time">
+                    </td>
+
+
+                    <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="date3" type="date">
+                    </td>
+
+                    <td class="product-dis">
+                     <textarea style="width: 300px;height: 30px" name="evidence3" type="text"></textarea>
+                    </td>
+
+
+
+                    </tr>
+                     <tr>
+                 <td class="product-dis">
+                   <h3 style="color:white">4</h3>
+                    </td>
+                                 <td class="product-dis">
+                   <input style="width: 300px;height: 30px" name="location4" type="text">
+                    </td>
+
+                     <td class="product-dis">
+                     <input style="width: 300px;height: 50px;" name="time4" type="time">
+                    </td>
+
+
+                    <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="date4" type="date">
+                    </td>
+
+                    <td class="product-dis">
+                     <textarea style="width: 300px;height: 30px" name="evidence4" type="text"></textarea>
+                    </td>
+
+
+
+                    </tr>
+                     <tr>
+                 <td class="product-dis">
+                   <h3 style="color:white">5</h3>
+                    </td>
+                                 <td class="product-dis">
+                   <input style="width: 300px;height: 30px" name="location5" type="text">
+                    </td>
+
+                     <td class="product-dis">
+                     <input style="width: 300px;height: 30px;" name="time5" type="time">
+                    </td>
+
+
+                    <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="date5" type="date">
+                    </td>
+
+                    <td class="product-dis">
+                     <textarea style="width: 300px;height: 30px" name="evidence5" type="text"></textarea>
+                    </td>
+
+
+
+                    </tr>
+                     <tr>
+                 <td class="product-dis">
+                   <h3 style="color:white">6</h3>
+                    </td>
+                                 <td class="product-dis">
+                   <input style="width: 300px;height: 30px" name="location6" type="text">
+                    </td>
+
+                     <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="time6" type="time">
+                    </td>
+
+
+                    <td class="product-dis">
+                     <input style="width: 300px;height: 30px" name="date6" type="date">
+                    </td>
+
+                    <td class="product-dis">
+                     <textarea style="width: 300px;height: 30px" name="evidence6" type="text"></textarea>
+                    </td>
+
+
+
+                    </tr>
+
+
+                </tbody>
+
+              </table>
+                 <button style="width: 50%;background-color: blue;" type="submit">submit</button>
+            </div>
+          </form>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+
+{% endblock %}
