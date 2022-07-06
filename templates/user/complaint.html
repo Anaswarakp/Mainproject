@@ -1,0 +1,111 @@
+
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+     <section class="ftco-counter" id="section-counter">
+      <div class="container-fluid">
+        <div class="row d-flex">
+
+          <div class="col-md-12 d-flex">
+            <div class="img d-flex align-self-stretch align-items-center justify-content-center">
+
+  <form action="" method="post" class="p-5 bg-white">
+      {% csrf_token %}
+  <div class="row form-group">
+    <div class="col-md-12">
+     <h1>Complaint Form</h1>
+     <label class="text-black" for="fname">NAME</label>
+    <input type="text" name="name" placeholder="Name" value="{{ ps.login.first_name }}" class="form-control" readonly="" class=" single-input">
+    <input type="hidden" name="st" placeholder="Name" value="{{ st }}">
+
+    </div>
+  </div>
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">GENDER</label>
+    <input type="text" name="gender" placeholder="Gender" value="{{ ps.gender }}" readonly=""  class="form-control"  required="" class="single-input">
+   </div>
+  </div>
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">DATE OF BIRTH</label>
+    <input type="text" name="dob" placeholder="DOB" value="{{ ps.dob }}" readonly=""  class="form-control rounded-0"  required="" class="single-input">
+   </div>
+  </div>
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">ADDRESS</label>
+    <input type="text" name="address" placeholder="Address" value="{{ ps.address }}" readonly=""  class="form-control rounded-0"  required="" class="single-input">
+   </div>
+  </div>
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">EMAIL</label>
+    <input type="email" name="email" placeholder="Email address" value="{{ ps.login.email }}" readonly=""   class="form-control rounded-0" required="" class="single-input">
+   </div>
+  </div>
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">PHONE</label>
+    <input type="text" name="phone" maxlength="10" class="form-control rounded-0" pattern="[0-9]{10}" title="Enter ten digit phone number" placeholder="Phone number" value="{{ ps.contact }}" readonly="" required="" class="single-input">
+   </div>
+  </div>
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">LOCATION</label>
+    <input type="text" name="location" placeholder="Location"  class="form-control rounded-0" required="" class="single-input">
+   </div>
+  </div>
+
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">TIME</label>
+    <input type="Time" name="timee" placeholder="Time" class="form-control rounded-0"required="" class="single-input">
+   </div>
+ </div>
+   <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">DATE</label>
+    <input type="date" name="date" placeholder="date" class="form-control rounded-0"required="" class="single-input">
+   </div>
+  </div>
+
+  <div class="row form-group">
+   <div class="col-md-12">
+    <label class="text-black" for="fname">COMPLAINTS</label>
+    <textarea type="text" name="complaint" placeholder="Complaint" class="form-control rounded-0" required="" class="single-input"></textarea>
+   </div>
+  </div>
+
+
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input name="register" type="submit" value="REGISTER" class="btn btn-primary py-3 px-4">
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+       </div>
+
+</div>
+</div>
+
+
+    </section>
+
+
+{% endblock %}
